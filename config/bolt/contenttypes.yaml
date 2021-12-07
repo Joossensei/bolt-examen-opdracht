@@ -4,6 +4,44 @@
 # The Homepage content type is a singleton: There can be only one record of this
 # content type.
 
+antwoorden:
+    name: Antwoorden
+    singular_name: Antwoord
+    fields:
+        studentnummer:
+            type: number
+            label: Studentnummer
+            group: Student Info
+        naam:
+            type: text
+            label: Naam
+        kilometer:
+            type: number
+            label: Aantal kilometer van het GLR
+            group: Reizen
+        minuten:
+            type: number
+            label: Aantal minuten van het GLR
+        vervoer:
+            type: select
+            multiple: true
+            values: [Trein, Tram, Metro, Bus, Auto, Fiets, Lopen]
+        startles:
+            type: select
+            label: Wat vind je van de begintijd van de lessen
+            multiple: false
+            values: [ Te vroeg, Goed, Te laat ]
+            group: Lessen
+        eindles:
+            type: select
+            label: Wat vind je van de eindtijd van de lessen
+            multiple: false
+            values: [ Te vroeg, Goed, Te laat ]
+        extra:
+            type: text
+            label: Opmerking over het reizen naar het GLR
+            group: Extra
+
 homepage:
     name: Homepage
     singular_name: Homepage
