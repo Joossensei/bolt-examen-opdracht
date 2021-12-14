@@ -1,0 +1,15 @@
+{#
+# Passed in variables:
+#   email    — The mail's WrappedTemplatedEmail instance
+#   data     — POSTed data
+#   formname — Field data from the form configuration
+#   config   — Current Form's configuration data
+#   meta     — Meta data (IP, URL, Timestamp)
+#}
+<p>Beste <strong>{{ email.toName }}</strong>, </p>
+
+<p>Verifieer je email voordat je kan inloggen bij de enquete</p>
+
+<button><a href="{{ canonical() ~ email.token }}">Klik hier om je account te verifieren!</a></button>
+
+<br>

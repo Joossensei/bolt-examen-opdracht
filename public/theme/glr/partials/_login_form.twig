@@ -1,0 +1,16 @@
+<form action="{{ path('bolt_login') }}" method="post">
+    <div>
+        <label>Username</label>
+        <input name="login[username]">
+    </div>
+    <div>
+        <label>Password</label>
+        <input name="login[password]" type="password">
+    </div>
+
+    <button type="submit">Log in</button>
+    <input type="hidden" name="login[_token]" value="{{ csrf_token('login_csrf_token') }}">
+    <input type="hidden" name="_target_path" value="/">
+</form>
+
+<p>Nog geen account? Maak er <a href="page/127">hier</a> één!</p>

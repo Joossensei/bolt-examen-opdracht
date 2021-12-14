@@ -6,13 +6,16 @@ use Bolt\Entity\Content;
 use Bolt\Factory\ContentFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UserFormController extends AbstractController
 {
-    private ?\Symfony\Component\HttpFoundation\Request $request;
+    /** @var Request $request  */
+    private Request $request;
 
+    /** @var ContentFactory $factory */
     private ContentFactory $factory;
 
     public function __construct(RequestStack $requestStack, ContentFactory $factory)
@@ -23,7 +26,7 @@ class UserFormController extends AbstractController
 
 
     /**
-     * @Route("/signupStudent", methods={"POST"})
+     * @Route("/signupStudent", name="signup_student", methods={"POST"})
      */
     public function fetchStudentData(): Response
     {
@@ -70,6 +73,8 @@ class UserFormController extends AbstractController
         foreach ($values as $name => $value) {
             $record->setFieldValue($name, $value);
         }
+
+        $record->setAuthor($this->getUser());
 
         $this->factory->save($record);
 

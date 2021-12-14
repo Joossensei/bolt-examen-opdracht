@@ -1,7 +1,6 @@
 {% extends 'partials/_master.twig' %}
 
 {% block main %}
-
     {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         {% include 'partials/_login_form.twig' %}
     {% else %}

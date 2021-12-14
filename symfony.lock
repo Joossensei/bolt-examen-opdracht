@@ -40,6 +40,9 @@
     "bolt/core": {
         "version": "4.1.4"
     },
+    "bolt/forms": {
+        "version": "1.4.10"
+    },
     "bolt/newswidget": {
         "version": "1.2.3"
     },
@@ -66,6 +69,9 @@
     },
     "composer/package-versions-deprecated": {
         "version": "1.11.99"
+    },
+    "composer/pcre": {
+        "version": "1.0.0"
     },
     "composer/semver": {
         "version": "3.2.2"

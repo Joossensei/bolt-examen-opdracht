@@ -7,5 +7,101 @@
         <target>Share secure preview link</target>
       </segment>
     </unit>
+    <unit id="a_COwtV" name="image.button_upload_options">
+      <segment>
+        <source>image.button_upload_options</source>
+        <target>image.button_upload_options</target>
+      </segment>
+    </unit>
+    <unit id="491FfOL" name="Studentnummer">
+      <segment>
+        <source>Studentnummer</source>
+        <target>Studentnummer</target>
+      </segment>
+    </unit>
+    <unit id="7KRvyrK" name="Naam">
+      <segment>
+        <source>Naam</source>
+        <target>Naam</target>
+      </segment>
+    </unit>
+    <unit id="sfGn6Kv" name="Jouw naam...">
+      <segment>
+        <source>Jouw naam...</source>
+        <target>Jouw naam...</target>
+      </segment>
+    </unit>
+    <unit id="8kiP1O9" name="Email address">
+      <segment>
+        <source>Email address</source>
+        <target>Email address</target>
+      </segment>
+    </unit>
+    <unit id="P7Wcv.M" name="Jouw email...">
+      <segment>
+        <source>Jouw email...</source>
+        <target>Jouw email...</target>
+      </segment>
+    </unit>
+    <unit id="q4ZroGW" name="Jouw klas">
+      <segment>
+        <source>Jouw klas</source>
+        <target>Jouw klas</target>
+      </segment>
+    </unit>
+    <unit id="ZaCAsUn" name="Jouw adres">
+      <segment>
+        <source>Jouw adres</source>
+        <target>Jouw adres</target>
+      </segment>
+    </unit>
+    <unit id="iUywZdw" name="Jouw postcode">
+      <segment>
+        <source>Jouw postcode</source>
+        <target>Jouw postcode</target>
+      </segment>
+    </unit>
+    <unit id="DfUqo5Q" name="Jouw woonplaats">
+      <segment>
+        <source>Jouw woonplaats</source>
+        <target>Jouw woonplaats</target>
+      </segment>
+    </unit>
+    <unit id="18FjcsU" name="Jouw leeftijd">
+      <segment>
+        <source>Jouw leeftijd</source>
+        <target>Jouw leeftijd</target>
+      </segment>
+    </unit>
+    <unit id="3fn_Kjd" name="Verstuur »">
+      <segment>
+        <source>Verstuur »</source>
+        <target>Verstuur »</target>
+      </segment>
+    </unit>
+    <unit id="vh2CKNd" name="Date string type domain">
+      <segment>
+        <source>Date string type domain</source>
+        <target>Date string type domain</target>
+      </segment>
+    </unit>
+    <unit id="N.CYa.A" name="Captcha v2">
+      <segment>
+        <source>Captcha v2</source>
+        <target>Captcha v2</target>
+      </segment>
+    </unit>
+    <unit id="pTUXSt3" name="Captcha">
+      <segment>
+        <source>Captcha</source>
+        <target>Captcha</target>
+      </segment>
+    </unit>
+    <unit id="mivKO4K" name="Wachtwoord">
+      <segment>
+        <source>Wachtwoord</source>
+        <target>Wachtwoord</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
