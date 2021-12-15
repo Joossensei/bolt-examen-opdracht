@@ -6,6 +6,7 @@ namespace App\Controller;
 use Bolt\BoltForms\Event\PostSubmitEvent;
 use Bolt\Entity\Content;
 use Bolt\Entity\User;
+use Bolt\Enum\UserStatus;
 use Bolt\Factory\ContentFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,9 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserRegistrationController extends AbstractController
 {
-    /** @var PostSubmitEvent */
-    private PostSubmitEvent $postEvent;
-
     /** @var ContentFactory */
     private ContentFactory $factory;
 
@@ -32,13 +30,11 @@ class UserRegistrationController extends AbstractController
         ContentFactory $factory,
         RequestStack $requestStack,
         UserPasswordHasherInterface $passwordHasher,
-        PostSubmitEvent $postEvent
     )
     {
         $this->request = $requestStack->getCurrentRequest();
         $this->factory = $factory;
         $this->hasher = $passwordHasher;
-        $this->postEvent = $postEvent;
     }
 
     /**
@@ -48,14 +44,15 @@ class UserRegistrationController extends AbstractController
     {
         // Vang alle post variablen op en stop deze in een array
         $values = [
-            'naam' => $this->request->get("naam"),
-            'studentnummer' => $this->request->get("studentnummer"),
-            'kilometer' => $this->request->get("kilometer"),
-            'minuten' => $this->request->get("minuten"),
-            'vervoer' => $this->request->get("vervoer"),
-            'startles' => $this->request->get("startLes"),
-            'eindles' => $this->request->get("eindLes"),
-            'extra' => $this->request->get("extra") ?? ''
+            'studentnummer' => $this->request->get("signup['studentnummer']"),
+            'naam' => $this->request->get("signup['naam']"),
+            'email' => $this->request->get("signup['email']"),
+            'klas' => $this->request->get("signup['klas']"),
+            'adres' => $this->request->get("signup['adres']"),
+            'postcode' => $this->request->get("signup['postcode']"),
+            'woonplaats' => $this->request->get("signup['woonplaats']"),
+            'leeftijd' => $this->request->get("signup['leeftijd']"),
+            'wachtwoord' => $this->request->get("signup['wachtwoord']"),
         ];
 
         $user = [
@@ -92,7 +89,9 @@ class UserRegistrationController extends AbstractController
 
         //Voor elke waarde vul deze in de database
         foreach ($values as $name => $value) {
-            $record->setFieldValue($name, $value);
+            if ($record->hasFieldDefined($name)) {
+                $record->setFieldValue($name, $value);
+            }
         }
 
         $record->setAuthor($this->getUser());
@@ -111,6 +110,7 @@ class UserRegistrationController extends AbstractController
         $user->setUsername($userData['studentnummer']);
         $user->setEmail($userData['email']);
         $user->setPassword($this->passwordHasher->hashPassword($user, $userData['password']));
+        $user->setStatus(UserStatus::DISABLED);
 
         return $user;
     }

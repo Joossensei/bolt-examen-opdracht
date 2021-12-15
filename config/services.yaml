@@ -10,6 +10,7 @@ parameters:
     app.notifications.email_sender: anonymous@example.com
     bolt.table_prefix: bolt_
     bolt.backend_url: /bolt
+    app.secret_mail_salt: '%env(SECRET_MAIL_SALT)%'
 
 
 services:

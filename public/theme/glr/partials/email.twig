@@ -10,6 +10,6 @@
 
 <p>Verifieer je email voordat je kan inloggen bij de enquete</p>
 
-<button><a href="{{ canonical() ~ email.token }}">Klik hier om je account te verifieren!</a></button>
+<button><a href="{{ path('verify_user', { 'secret': generate_secret(email.email), 'email': email.email }) }}">Klik hier om je account te verifieren!</a></button>
 
 <br>

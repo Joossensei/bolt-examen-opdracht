@@ -7,8 +7,6 @@ payoff: The amazing payoff goes here
 
 secret: '%env(APP_SECRET)%'
 
-secret_mail_salt: RqavZLWU69qdDX4ncA93
-
 # The theme to use.
 #
 # Dont edit the provided templates directly, because they _will_ get updated
