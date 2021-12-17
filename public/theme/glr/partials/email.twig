@@ -10,6 +10,7 @@
 
 <p>Verifieer je email voordat je kan inloggen bij de enquete</p>
 
-<button><a href="{{ path('verify_user', { 'secret': generate_secret(email.email), 'email': email.email }) }}">Klik hier om je account te verifieren!</a></button>
+{% set emailAddress = email.getTo()|first.address %}
+<button><a href="{{ url('verify_user', { 'secret': generate_secret(emailAddress), 'email': emailAddress }) }}">Klik hier om je account te verifieren!</a></button>
 
 <br>

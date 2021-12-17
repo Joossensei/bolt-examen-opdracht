@@ -7,42 +7,40 @@ namespace App;
 use Bolt\BoltForms\Event\PostSubmitEvent;
 use Bolt\BoltForms\EventSubscriber\Redirect;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use App\Controller\UserRegistrationController;
 
 
 class PostSubmitSubscriber implements EventSubscriberInterface
 {
-    private Request $request;
+    private UserRegistrationController $registrationController;
 
-    private RedirectResponse $redirectResponse;
-
-    public function __construct(Request $request, Redirect $redirect)
+    public function __construct(UserRegistrationController $registrationController)
     {
-        $this->request = $request;
-        $this->redirectResponse = $redirect;
+        $this->registrationController = $registrationController;
     }
 
     public static function getSubscribedEvents()
     {
         return [
-            PostSubmitEvent::NAME => ['redirectSignup']
+            PostSubmitEvent::NAME => ['onPostSubmit']
         ];
     }
 
-    public function redirectSignup()
+    public function onPostSubmit(PostSubmitEvent $event): void
     {
-        // Vang alle post variablen op en stop deze in een array
-        $values = [
-            'studentnummer' => $this->request->get("signup['studentnummer']"),
-            'naam' => $this->request->get("signup['naam']"),
-            'email' => $this->request->get("signup['email']"),
-            'klas' => $this->request->get("signup['klas']"),
-            'adres' => $this->request->get("signup['adres']"),
-            'postcode' => $this->request->get("signup['postcode']"),
-            'woonplaats' => $this->request->get("signup['woonplaats']"),
-            'leeftijd' => $this->request->get("signup['leeftijd']"),
-            'wachtwoord' => $this->request->get("signup['wachtwoord']"),
+        $form = $event->getForm();
+
+        $data = $form->getData();
+
+        $user = [
+            'email' => $data["email"],
+            'naam' => $data["naam"],
+            'password' => $data["wachtwoord"],
+            'studentnummer' => $data["studentnummer"]
         ];
+
+        $this->registrationController->createUser($user);
+
+        $this->registrationController->upsertUser($data);
     }
 }

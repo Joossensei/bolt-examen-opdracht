@@ -69,7 +69,7 @@ class UserRegistrationController extends AbstractController
         return new Response('OK');
     }
 
-    private function upsertUser(array $values): Content
+    public function upsertUser(array $values): Content
     {
         // Check of er een record bestaat anders creeer er 1
         $record = $this->factory->upsert('antwoorden', [
@@ -79,12 +79,13 @@ class UserRegistrationController extends AbstractController
         $values = [
             'studentnummer' => $values['studentnummer'],
             'naam' => $values['naam'],
-            'email' => $values['kilometer'],
-            'klas' => $values['minuten'],
-            'vervoer' => $values['vervoer'],
-            'startles' => $values['startles'],
-            'eindles' => $values['eindles'],
-            'extra' => $values['extra'] ?? ''
+            'email' => $values['email'],
+            'klas' => $values['klas'],
+            'adres' => $values['adres'],
+            'postcode' => $values['postcode'],
+            'plaats' => $values['plaats'],
+            'leeftijd' => $values['leeftijd'],
+            'wachtwoord' => $values['wachtwoord'],
         ];
 
         //Voor elke waarde vul deze in de database
@@ -102,15 +103,15 @@ class UserRegistrationController extends AbstractController
 
     }
 
-    private function createUser(array $userData) : User
+    public function createUser(array $userData) : User
     {
         $user = new User();
 
         $user->setDisplayName($userData['naam']);
         $user->setUsername($userData['studentnummer']);
         $user->setEmail($userData['email']);
-        $user->setPassword($this->passwordHasher->hashPassword($user, $userData['password']));
-        $user->setStatus(UserStatus::DISABLED);
+        $user->setPassword($this->hasher->hashPassword($user, $userData['password']));
+//        $user->setStatus(UserStatus::DISABLED);
 
         return $user;
     }

@@ -140,11 +140,11 @@ signup:
                 required: true
                 label: Wachtwoord
                 constraints: [ NotBlank ]
-        captcha:
-            type: captcha
-            options:
-                captcha_type: recaptcha_v2
-            label: 
+#        captcha:
+#            type: captcha
+#            options:
+#                captcha_type: recaptcha_v2
+#            label: ''
         submit:
             type: submit
             options:

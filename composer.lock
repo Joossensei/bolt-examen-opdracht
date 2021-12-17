@@ -762,16 +762,16 @@
         },
         {
             "name": "bolt/forms",
-            "version": "1.4.10",
+            "version": "1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/forms.git",
-                "reference": "997c44210aea9756948f6ae8ca3e6b6f3e6c11a6"
+                "reference": "67e6b9728080a69a87d4ac8e556bd9b5cef170ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/forms/zipball/997c44210aea9756948f6ae8ca3e6b6f3e6c11a6",
-                "reference": "997c44210aea9756948f6ae8ca3e6b6f3e6c11a6",
+                "url": "https://api.github.com/repos/bolt/forms/zipball/67e6b9728080a69a87d4ac8e556bd9b5cef170ee",
+                "reference": "67e6b9728080a69a87d4ac8e556bd9b5cef170ee",
                 "shasum": ""
             },
             "require": {
@@ -807,9 +807,9 @@
             "description": "📦 This Bolt extension can be used to handle forms in your Bolt 5 project.",
             "support": {
                 "issues": "https://github.com/bolt/forms/issues",
-                "source": "https://github.com/bolt/forms/tree/1.4.10"
+                "source": "https://github.com/bolt/forms/tree/1.4.11"
             },
-            "time": "2021-11-26T13:14:51+00:00"
+            "time": "2021-12-15T15:15:24+00:00"
         },
         {
             "name": "bolt/newswidget",
@@ -12446,16 +12446,16 @@
         },
         {
             "name": "tightenco/collect",
-            "version": "v8.75.0",
+            "version": "v8.76.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/collect.git",
-                "reference": "d05d932b9f066b2de4601fb17f72aab69b7d1c9b"
+                "reference": "c7e8131653480146d4c32c2523d53e0e59a7af19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/collect/zipball/d05d932b9f066b2de4601fb17f72aab69b7d1c9b",
-                "reference": "d05d932b9f066b2de4601fb17f72aab69b7d1c9b",
+                "url": "https://api.github.com/repos/tighten/collect/zipball/c7e8131653480146d4c32c2523d53e0e59a7af19",
+                "reference": "c7e8131653480146d4c32c2523d53e0e59a7af19",
                 "shasum": ""
             },
             "require": {
@@ -12494,9 +12494,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tighten/collect/issues",
-                "source": "https://github.com/tighten/collect/tree/v8.75.0"
+                "source": "https://github.com/tighten/collect/tree/v8.76.1"
             },
-            "time": "2021-12-07T18:53:43+00:00"
+            "time": "2021-12-14T22:01:32+00:00"
         },
         {
             "name": "twig/extra-bundle",

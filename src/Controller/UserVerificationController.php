@@ -39,13 +39,17 @@ class UserVerificationController extends TwigAwareController
             throw new \Exception('Sorry, this is no longer valid.');
         }
 
-        // activate user
+        var_dump($email);
+
         $user = $this->userRepository->findOneBy(['email' => $email]);
+
+        var_dump($user);
 
         if (! $user instanceof User) {
             throw new \Exception("Sorry, user was not found with email " . $email);
         }
 
+        // activate user
         $user->setStatus(UserStatus::ENABLED);
         $this->em->persist($user);
         $this->em->flush();
