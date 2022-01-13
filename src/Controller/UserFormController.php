@@ -26,7 +26,7 @@ class UserFormController extends AbstractController
 
 
     /**
-     * @Route("/signupStudent", name="signup_student", methods={"POST"})
+     * @Route("/submitForm", name="submit_form", methods={"POST"})
      */
     public function fetchStudentData(): Response
     {

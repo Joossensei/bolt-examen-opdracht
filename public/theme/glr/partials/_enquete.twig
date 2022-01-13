@@ -1,6 +1,6 @@
 {% setcontent antwoord = 'antwoorden' where { 'author' : app.user.id } returnsingle %}
 
-<form action="{{ path('signup_student') }}" method="post" name="signupStudent">
+<form action="{{ path('submit_form') }}" method="post" name="signupStudent">
     <label for="username">Student nummer:</label><br>
     <input type="number" id="username" name="studentnummer" value="{% if antwoord %}{{ antwoord.studentnummer }}{% endif %}" />
     <br>
