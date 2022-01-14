@@ -1,6 +1,8 @@
 {% setcontent antwoord = 'antwoorden' where { 'author' : app.user.id } returnsingle %}
 
-<form action="{{ path('submit_form') }}" method="post" name="signupStudent">
+{% dump(antwoord.vervoer.value) %}
+
+<form action="{{ path('submit_form') }}" method="post" name="enquete_form">
     <label for="username">Student nummer:</label><br>
     <input type="number" id="username" name="studentnummer" value="{% if antwoord %}{{ antwoord.studentnummer }}{% endif %}" />
     <br>
@@ -15,37 +17,37 @@
     <br>
     <label for="vervoer">Welke vervoersmiddelen gebruik je om naar het GLR te reizen:</label><br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Trein">
+        <input type="checkbox" name="vervoer[]" value="Trein" {% if antwoord %} {% if antwoord.vervoer.value %} checked {% endif %} {% endif %}>
         Trein
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Tram">
+        <input type="checkbox" name="vervoer[]" value="Tram"  {% if antwoord %} {% if antwoord.vervoer.value === 'Tram' %} checked {% endif %} {% endif %}>
         Tram
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Metro">
+        <input type="checkbox" name="vervoer[]" value="Metro"  {% if antwoord %} {% if antwoord.vervoer.value === 'Metro' %} checked {% endif %} {% endif %}>
         Metro
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Bus">
+        <input type="checkbox" name="vervoer[]" value="Bus"  {% if antwoord %} {% if antwoord.vervoer.value === 'Bus' %} checked {% endif %} {% endif %}>
         Bus
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Auto">
+        <input type="checkbox" name="vervoer[]" value="Auto"  {% if antwoord %} {% if antwoord.vervoer.value === 'Auto' %} checked {% endif %} {% endif %}>
         Auto
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Fiets">
+        <input type="checkbox" name="vervoer[]" value="Fiets"  {% if antwoord %} {% if antwoord.vervoer.value === 'Fiets' %} checked {% endif %} {% endif %}>
         Fiets
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Lopen">
+        <input type="checkbox" name="vervoer[]" value="Lopen"  {% if antwoord %} {% if antwoord.vervoer.value === 'Lopen' %} checked {% endif %} {% endif %}>
         Lopen
     </label>
     <br>

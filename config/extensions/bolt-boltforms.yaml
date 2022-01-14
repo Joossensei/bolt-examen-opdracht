@@ -75,9 +75,9 @@ signup:
     feedback:
         success: Versturen voltooid! Check je mail voor een verificatie bericht
         error: Er klopt iets niet! Weet je zeker dat alles goed is ingevuld?
-    database:
-        contenttype:
-            name: studenten  # ContentType record to create
+#    database:
+#        contenttype:
+#            name: studenten  # ContentType record to create
     recaptcha: enabled
     fields:
         studentnummer:

@@ -21,10 +21,10 @@ class UserRegistrationController extends AbstractController
     private ContentFactory $factory;
 
     /** @var Request */
-    private Request $request;
+    private $request;
 
     /** @var UserPasswordHasherInterface */
-    private $passwordHasher;
+    private $hasher;
 
     public function __construct(
         ContentFactory $factory,
@@ -63,8 +63,8 @@ class UserRegistrationController extends AbstractController
         ];
 
         // Loop over de values en 'upsert' (update or insert) deze in de database
-        $this->upsertUser($values);
         $this->createUser($user);
+        $this->upsertUser($values);
 
         return new Response('OK');
     }
@@ -72,7 +72,7 @@ class UserRegistrationController extends AbstractController
     public function upsertUser(array $values): Content
     {
         // Check of er een record bestaat anders creeer er 1
-        $record = $this->factory->upsert('antwoorden', [
+        $record = $this->factory->upsert('studenten', [
             'studentnummer' => $values['studentnummer']
         ]);
 
@@ -111,6 +111,9 @@ class UserRegistrationController extends AbstractController
         $user->setUsername($userData['studentnummer']);
         $user->setEmail($userData['email']);
         $user->setPassword($this->hasher->hashPassword($user, $userData['password']));
+        $user->setRoles(['ROLE_STUDENT']);
+
+        dd($user);
 //        $user->setStatus(UserStatus::DISABLED);
 
         return $user;
