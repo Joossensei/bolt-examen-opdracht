@@ -10,10 +10,10 @@
     <label for="kilometer">Hoeveel kilometer leef je van het GLR:</label><br>
     <input type="number" id="kilometer" name="kilometer" placeholder="Zoek desnoods op via Google Maps" {% if antwoord %}value="{{ antwoord.studentnummer }}"{% endif %} />
     <br>
-    <label for="minuten">Hoe lang doe je er over om van huis naar het GLR te reizen:</label><br>
+    <label for="minuten">Wat is jouw gemiddelde reistijd:</label><br>
     <input type="number" id="minuten" name="minuten" placeholder="Antwoord in minuten" {% if antwoord %}value="{{ antwoord.studentnummer }}"{% endif %} />
     <br>
-    <label for="vervoer">Welke vervoersmiddelen gebruik je om naar het GLR te reizen:</label><br>
+    <label for="vervoer">Welke vervoer gebruik je:</label><br>
     <label>
         <input type="checkbox" name="vervoer[]" value="Trein" {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Trein') %} checked {% endif %} {% endif %}>
         Trein
@@ -49,24 +49,24 @@
         Lopen
     </label>
     <br>
-    <label for="startLes">Wat vind je van de begintijd van de lessen (8:15 uur):</label><br>
+    <label for="startLes">Wat vind je van de begintijd van de lessen:</label><br>
     <select name="startLes" id="startLes">
         <option>Te vroeg</option>
         <option>Goed</option>
         <option>Te laat</option>
     </select>
     <br>
-    <label for="eindLes">Wat vind je van de eindtijd van de lessen (17:15 uur):</label><br>
+    <label for="eindLes">Wat vind je van de eindtijd van de lessen:</label><br>
     <select name="eindLes" id="eindLes">
         <option>Te vroeg</option>
         <option>Goed</option>
         <option>Te laat</option>
     </select>
     <br>
-    <label for="extra">Heb je verder nog opmerkingen over het reizen naar het GLR:</label>
+    <label for="extra">Overige opmerkingen:</label>
     <input type="text" id="extra" name="extra" {% if antwoord %}value="{{ antwoord.studentnummer }}"{% endif %} />
     <br>
 
-    <label for="submit">Submit:</label> <br>
-    <input type="submit" id="submit" name="submit" />
+    <label for="submit">Verstuur:</label> <br>
+    <input type="submit" id="submit" name="submit" value="Verstuur jouw antwoord" />
 </form>

@@ -6,12 +6,36 @@ html {
 header {
     background-color: #8ee508 !important;
     color: #000000 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
 }
 
-form.boltforms label {
-    margin-right: 50%;
+header .header-image {
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
-form.boltforms input {
-    width: 75%;
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1.25rem;
+    background: #969696;
+    border-radius: 20px;
 }
+
+form select,
+form input[type="text"],
+form input[type="submit"],
+form input[type="number"],
+form input[type="password"] {
+    width: 100%;
+}
+
+

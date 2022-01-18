@@ -1,8 +1,4 @@
 <!-- Header bar -->
 <header>
-    {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
-    <h2>{{ config.get('general/sitename') }}</h2>
-    {% if config.has('general/payoff') and record is defined and record|feature == 'homepage' %}
-        <p>{{ config.get('general/payoff') }}</p>
-    {% endif %}
+    <img src="https://ara.nl/sites/bd_ara_nl/files/styles/16_9_klant/public/usercontent/customer/glr.png?itok=LybjvgYB" class="header-image" alt="Grafisch Lyceum Rotterdam" />
 </header>
