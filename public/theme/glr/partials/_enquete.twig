@@ -17,37 +17,37 @@
     <br>
     <label for="vervoer">Welke vervoersmiddelen gebruik je om naar het GLR te reizen:</label><br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Trein" {% if antwoord %} {% if antwoord.vervoer.value %} checked {% endif %} {% endif %}>
+        <input type="checkbox" name="vervoer[]" value="Trein" {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Trein') %} checked {% endif %} {% endif %}>
         Trein
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Tram"  {% if antwoord %} {% if antwoord.vervoer.value === 'Tram' %} checked {% endif %} {% endif %}>
+        <input type="checkbox" name="vervoer[]" value="Tram"  {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Tram') %} checked {% endif %} {% endif %}>
         Tram
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Metro"  {% if antwoord %} {% if antwoord.vervoer.value === 'Metro' %} checked {% endif %} {% endif %}>
+        <input type="checkbox" name="vervoer[]" value="Metro"  {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Metro') %} checked {% endif %} {% endif %}>
         Metro
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Bus"  {% if antwoord %} {% if antwoord.vervoer.value === 'Bus' %} checked {% endif %} {% endif %}>
+        <input type="checkbox" name="vervoer[]" value="Bus"  {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Bus') %} checked {% endif %} {% endif %}>
         Bus
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Auto"  {% if antwoord %} {% if antwoord.vervoer.value === 'Auto' %} checked {% endif %} {% endif %}>
+        <input type="checkbox" name="vervoer[]" value="Auto"  {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Auto') %} checked {% endif %} {% endif %}>
         Auto
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Fiets"  {% if antwoord %} {% if antwoord.vervoer.value === 'Fiets' %} checked {% endif %} {% endif %}>
+        <input type="checkbox" name="vervoer[]" value="Fiets"  {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Fiets') %} checked {% endif %} {% endif %}>
         Fiets
     </label>
     <br>
     <label>
-        <input type="checkbox" name="vervoer[]" value="Lopen"  {% if antwoord %} {% if antwoord.vervoer.value === 'Lopen' %} checked {% endif %} {% endif %}>
+        <input type="checkbox" name="vervoer[]" value="Lopen"  {% if antwoord %} {% if has_value(antwoord.vervoer.value, 'Lopen') %} checked {% endif %} {% endif %}>
         Lopen
     </label>
     <br>
