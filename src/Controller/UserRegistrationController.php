@@ -44,30 +44,6 @@ class UserRegistrationController extends AbstractController
         $this->entityManager = $em;
     }
 
-    /**
-     * @Route("/signupStudent", name="signup_student", methods={"POST"})
-     */
-    public function fetchStudentData(): Response
-    {
-        // Vang alle post variablen op en stop deze in een array
-        $values = [
-            'studentnummer' => $this->request->get("signup['studentnummer']"),
-            'naam' => $this->request->get("signup['naam']"),
-            'email' => $this->request->get("signup['email']"),
-            'klas' => $this->request->get("signup['klas']"),
-            'adres' => $this->request->get("signup['adres']"),
-            'postcode' => $this->request->get("signup['postcode']"),
-            'woonplaats' => $this->request->get("signup['woonplaats']"),
-            'leeftijd' => $this->request->get("signup['leeftijd']"),
-            'password' => $this->request->get("signup['wachtwoord']"),
-        ];
-
-        // Loop over de values en 'upsert' (update or insert) deze in de database
-        $this->upsertUser($values);
-
-        return new Response('OK');
-    }
-
     public function upsertUser(array $values, User $user): Content
     {
         // Check of er een record bestaat anders creeer er 1
