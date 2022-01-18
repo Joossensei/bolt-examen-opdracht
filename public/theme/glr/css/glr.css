@@ -38,4 +38,13 @@ form input[type="password"] {
     width: 100%;
 }
 
+.title-thanks {
+    background: #8ee508;
+    opacity: 0.5;
+    border-radius: 10px;
+    border: #0b2e13 2px solid;
+    padding: 10px;
+    color: black;
+}
+
 

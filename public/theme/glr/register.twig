@@ -1,5 +1,9 @@
 {% extends 'partials/_master.twig' %}
-
 {% block main %}
+{% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
     {{ boltform('signup') }}
-{% endblock main %}
+{% else %}
+    {% include 'partials/_enquete.twig' %}
+{% endif %}
+{% endblock %}
+

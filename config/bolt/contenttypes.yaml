@@ -119,3 +119,5 @@ pages:
         template:
             type: templateselect
             filter: '/^[^_].*\.twig$/'
+        slug: 
+            type: slug
