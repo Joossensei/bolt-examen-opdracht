@@ -32,13 +32,18 @@ class PostSubmitSubscriber implements EventSubscriberInterface
     {
         $form = $event->getForm();
 
-        $data = $form->getData();
+        $values = $form->getData();
 
         $user = [
-            'email' => $data["email"],
-            'naam' => $data["naam"],
-            'password' => $data["wachtwoord"],
-            'studentnummer' => $data["studentnummer"]
+            'studentnummer' => $values['studentnummer'],
+            'naam' => $values['naam'],
+            'email' => $values['email'],
+            'klas' => $values['klas'],
+            'adres' => $values['adres'],
+            'postcode' => $values['postcode'],
+            'plaats' => $values['plaats'],
+            'leeftijd' => $values['leeftijd'],
+            'password' => $values['wachtwoord'],
         ];
 
         //Voer de functie van het aanmaken van de gebruiker uit

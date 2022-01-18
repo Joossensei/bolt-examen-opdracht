@@ -59,7 +59,7 @@ class UserRegistrationController extends AbstractController
             'postcode' => $this->request->get("signup['postcode']"),
             'woonplaats' => $this->request->get("signup['woonplaats']"),
             'leeftijd' => $this->request->get("signup['leeftijd']"),
-            'wachtwoord' => $this->request->get("signup['wachtwoord']"),
+            'password' => $this->request->get("signup['wachtwoord']"),
         ];
 
         // Loop over de values en 'upsert' (update or insert) deze in de database
@@ -68,7 +68,7 @@ class UserRegistrationController extends AbstractController
         return new Response('OK');
     }
 
-    public function upsertUser(array $values): Content
+    public function upsertUser(array $values, User $user): Content
     {
         // Check of er een record bestaat anders creeer er 1
         $record = $this->factory->upsert('studenten', [
@@ -84,7 +84,7 @@ class UserRegistrationController extends AbstractController
             'postcode' => $values['postcode'],
             'plaats' => $values['plaats'],
             'leeftijd' => $values['leeftijd'],
-            'wachtwoord' => $values['wachtwoord'],
+            'wachtwoord' => $values['password'],
         ];
 
         //Voor elke waarde vul deze in de database
@@ -94,7 +94,7 @@ class UserRegistrationController extends AbstractController
             }
         }
 
-        $record->setAuthor($this->getUser());
+        $record->setAuthor($user);
 
         $this->factory->save($record);
 
@@ -114,7 +114,8 @@ class UserRegistrationController extends AbstractController
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
-//        dd($user);
+
+        $this->upsertUser($userData, $user);
 
         return $user;
     }

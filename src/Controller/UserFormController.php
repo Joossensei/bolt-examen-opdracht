@@ -42,13 +42,36 @@ class UserFormController extends AbstractController
             'extra' => $this->request->get("extra") ?? ''
         ];
 
+        $this->checkForm($values);
+
         // Loop over de values en 'upsert' (update or insert) deze in de database
         foreach ($values as $value) {
             $this->upsertForm($values);
         }
 
-        return new Response('OK');
+        return $this->redirectToRoute('homepage');
     }
+
+    public function checkForm(array $data) : bool
+    {
+        $naam = $data['naam'];
+        $studentnummer = $data['studentnummer'];
+        $kilometer = $data['kilometer'];
+        $minuten = $data['minuten'];
+        $vervoer = $data['vervoer'];
+        $startles = $data['startles'];
+        $eindles = $data['eindles'];
+        $extra = $data['extra'];
+
+        // Check of 1 van de velden leeg is
+        if (empty($studentnummer || $naam || $kilometer || $minuten || $vervoer || $startles || $eindles)) {
+            throw new \Exception("Er is een veld niet ingevuld 🤔");
+        }
+
+        return true;
+    }
+
+
 
     // Upsert (Update or insert) de data in de database
     public function upsertForm(array $form): Content
