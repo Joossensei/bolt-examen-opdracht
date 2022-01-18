@@ -27,28 +27,9 @@
     --preformatted: #444;
     --marked: #FFDD33;
     --disabled: #EFEFEF;
+    --glr: #8EE508;
 }
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #212121;
-        --accent-bg: #2B2B2B;
-        --accent-bg-stronger: #444;
-        --text: #DCDCDC;
-        --text-light: #ABABAB;
-        --border: #666;
-        --accent: #FFB300;
-        --accent-light: #FFECB3;
-        --code: #F06292;
-        --preformatted: #CCC;
-        --disabled: #111;
-    }
-
-    img, video {
-        opacity: .6;
-    }
-}
 
 * {
     /* Set the font globally */
@@ -207,9 +188,9 @@ input[type="reset"],
 input[type="button"] {
     border: none;
     border-radius: 5px;
-    background: var(--accent);
+    background: var(--glr);
     font-size: 1rem;
-    color: var(--bg);
+    color: var(--text);
     padding: .7rem .9rem;
     margin: .5rem 0;
     transition: .4s;
@@ -366,7 +347,7 @@ input[type="radio"]{
 
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-    background: var(--accent);
+    background: var(--glr);
 }
 
 input[type="checkbox"]:checked::after {

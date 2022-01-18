@@ -1,10 +1,13 @@
 <form action="{{ path('bolt_login') }}" method="post">
     <div>
-        <label>Username</label>
+        <h2>Log hier in met je school account</h2>
+    </div>
+    <div>
+        <label>Student nummer</label><br>
         <input name="login[username]">
     </div>
     <div>
-        <label>Password</label>
+        <label>Wachtwoord</label><br>
         <input name="login[password]" type="password">
     </div>
 
@@ -13,4 +16,4 @@
     <input type="hidden" name="_target_path" value="/">
 </form>
 
-<p>Nog geen account? Maak er <a href="page/127">hier</a> één!</p>
+<p>Kom je hier voor het eerst? Maak dan <a href="page/127">hier</a> een account aan!</p>

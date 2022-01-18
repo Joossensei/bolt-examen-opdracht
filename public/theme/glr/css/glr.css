@@ -1,8 +1,17 @@
 html {
-    background: var(--text) !important;
+    --bg: #ffff;
+    background: var(--bg) !important;
 }
 
 header {
     background-color: #8ee508 !important;
     color: #000000 !important;
+}
+
+form.boltforms label {
+    margin-right: 50%;
+}
+
+form.boltforms input {
+    width: 75%;
 }

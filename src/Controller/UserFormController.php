@@ -45,9 +45,7 @@ class UserFormController extends AbstractController
         $this->checkForm($values);
 
         // Loop over de values en 'upsert' (update or insert) deze in de database
-        foreach ($values as $value) {
-            $this->upsertForm($values);
-        }
+        $this->upsertForm($values);
 
         return $this->redirectToRoute('homepage');
     }
@@ -70,8 +68,6 @@ class UserFormController extends AbstractController
 
         return true;
     }
-
-
 
     // Upsert (Update or insert) de data in de database
     public function upsertForm(array $form): Content
