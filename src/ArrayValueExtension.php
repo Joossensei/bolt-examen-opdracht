@@ -18,7 +18,6 @@ class ArrayValueExtension extends AbstractExtension
     {
         foreach($array as $value) {
             if($value == $key) {
-                dump($value);
                 return true;
             } else {
                 continue;

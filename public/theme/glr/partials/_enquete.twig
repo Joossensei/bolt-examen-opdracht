@@ -1,13 +1,11 @@
 {% setcontent antwoord = 'antwoorden' where { 'author' : app.user.id } returnsingle %}
 
-{% dump(antwoord.vervoer.value) %}
-
 <form action="{{ path('submit_form') }}" method="post" name="enquete_form">
     <label for="username">Student nummer:</label><br>
-    <input type="number" id="username" name="studentnummer" value="{% if antwoord %}{{ antwoord.studentnummer }}{% endif %}" />
+    <input type="text" id="username" name="studentnummer" value="{{ app.user.userName }}" disabled />
     <br>
     <label for="name">Naam:</label><br>
-    <input type="text" id="name" name="naam"  {% if antwoord %}value="{{ antwoord.naam }}"{% endif %} />
+    <input type="text" id="name" name="naam" value="{{ app.user.displayName }}" disabled/>
     <br>
     <label for="kilometer">Hoeveel kilometer leef je van het GLR:</label><br>
     <input type="number" id="kilometer" name="kilometer" placeholder="Zoek desnoods op via Google Maps" {% if antwoord %}value="{{ antwoord.studentnummer }}"{% endif %} />

@@ -1,0 +1,8 @@
+html {
+    background: var(--text) !important;
+}
+
+header {
+    background-color: #8ee508 !important;
+    color: #000000 !important;
+}

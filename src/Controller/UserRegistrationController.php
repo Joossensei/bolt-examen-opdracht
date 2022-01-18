@@ -8,6 +8,8 @@ use Bolt\Entity\Content;
 use Bolt\Entity\User;
 use Bolt\Enum\UserStatus;
 use Bolt\Factory\ContentFactory;
+use Bolt\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -26,15 +28,20 @@ class UserRegistrationController extends AbstractController
     /** @var UserPasswordHasherInterface */
     private $hasher;
 
+    /** @var EntityManagerInterface */
+    private $entityManager;
+
     public function __construct(
         ContentFactory $factory,
         RequestStack $requestStack,
         UserPasswordHasherInterface $passwordHasher,
+        EntityManagerInterface $em
     )
     {
         $this->request = $requestStack->getCurrentRequest();
         $this->factory = $factory;
         $this->hasher = $passwordHasher;
+        $this->entityManager = $em;
     }
 
     /**
@@ -55,15 +62,7 @@ class UserRegistrationController extends AbstractController
             'wachtwoord' => $this->request->get("signup['wachtwoord']"),
         ];
 
-        $user = [
-            'email' => $this->request->get("email"),
-            'name' => $this->request->get("naam"),
-            'password' => $this->request->get("wachtwoord"),
-            'studentnummer' => $this->request->get("studentnummer")
-        ];
-
         // Loop over de values en 'upsert' (update or insert) deze in de database
-        $this->createUser($user);
         $this->upsertUser($values);
 
         return new Response('OK');
@@ -105,16 +104,17 @@ class UserRegistrationController extends AbstractController
 
     public function createUser(array $userData) : User
     {
-        $user = new User();
-
-        $user->setDisplayName($userData['naam']);
-        $user->setUsername($userData['studentnummer']);
-        $user->setEmail($userData['email']);
-        $user->setPassword($this->hasher->hashPassword($user, $userData['password']));
+        $user = UserRepository::factory($userData['naam'], $userData['studentnummer'], $userData['email']);
         $user->setRoles(['ROLE_STUDENT']);
 
-        dd($user);
-//        $user->setStatus(UserStatus::DISABLED);
+        $hashedPassword = $this->hasher->hashPassword($user, $userData['password']);
+
+        $user->setPassword($hashedPassword);
+        $user->setStatus(UserStatus::DISABLED);
+
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+//        dd($user);
 
         return $user;
     }

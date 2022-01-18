@@ -26,6 +26,8 @@ class PostSubmitSubscriber implements EventSubscriberInterface
         ];
     }
 
+
+    // We hebben deze functie nodig om de gegevens van het formulier op te vangen voor de gebruiker
     public function onPostSubmit(PostSubmitEvent $event): void
     {
         $form = $event->getForm();
@@ -39,8 +41,7 @@ class PostSubmitSubscriber implements EventSubscriberInterface
             'studentnummer' => $data["studentnummer"]
         ];
 
+        //Voer de functie van het aanmaken van de gebruiker uit
         $this->registrationController->createUser($user);
-
-        $this->registrationController->upsertUser($data);
     }
 }
