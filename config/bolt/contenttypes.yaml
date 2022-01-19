@@ -9,12 +9,14 @@ antwoorden:
     singular_name: Antwoord
     fields:
         studentnummer:
-            type: number
+            type: text
             label: Studentnummer
             group: Student Info
+            readonly: true
         naam:
             type: text
             label: Naam
+            readonly: true
         kilometer:
             type: number
             label: Aantal kilometer van het GLR

@@ -3,7 +3,13 @@
 {% block main %}
     {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         {% include 'partials/_login_form.twig' %}
-    {% else %}
+    {% endif %}
+    {% if is_granted('ROLE_STUDENT') %}
         {% include 'partials/_enquete.twig' %}
     {% endif %}
+    {% if is_granted('ROLE_DOCENT') %}
+        <h3>Hallo {{ app.user.displayName }}</h3>
+        <p>Om de antwoorden van studenten te bekijken klik <a href="/bolt/content/antwoorden">hier</a></p>
+    {% endif %}
+
 {% endblock main %}

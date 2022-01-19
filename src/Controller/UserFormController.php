@@ -30,6 +30,9 @@ class UserFormController extends AbstractController
      */
     public function fetchStudentData(): Response
     {
+
+//        dd($this->request);
+
         // Vang alle post variablen op en stop deze in een array
         $values = [
             'naam' => $this->request->get("naam"),
@@ -66,6 +69,11 @@ class UserFormController extends AbstractController
             throw new \Exception("Er is een veld niet ingevuld 🤔");
         }
 
+        // Check of het studentnummer overeen komt met de huidige gebruiker
+        if ($studentnummer === $this->getUser()->getUsername()){
+
+        }
+
         return true;
     }
 
@@ -87,6 +95,8 @@ class UserFormController extends AbstractController
             'eindles' => $form['eindles'],
             'extra' => $form['extra'] ?? ''
         ];
+
+//        dd($values);
 
         //Voor elke waarde vul deze in de database
         foreach ($values as $name => $value) {
