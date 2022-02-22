@@ -53,7 +53,7 @@ layout:
 recaptcha:
     enabled: true
     public_key: '6LcKh4kdAAAAAHPaHvjk8AarHV80ZYiA9fHdgB-I'
-    private_key: '6LcKh4kdAAAAAN4KIzcd8BgRCyFjyB-N5Arv4Tf6'
+    private_key: '%env(SECRET_CAPTCHA_KEY)'
     theme: light
     recaptcha_v3_threshold: 0.0 #Allows all forms to pass threshold.
     recaptcha_v3_fail_message: We've been unable to verify whether you're human! Please, try resubmitting the form or get in touch via an alternative contact method.  
