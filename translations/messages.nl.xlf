@@ -19,5 +19,23 @@
         <target>You do not have permission to access this page.</target>
       </segment>
     </unit>
+    <unit id="7CnEPtv" name="School Email">
+      <segment>
+        <source>School Email</source>
+        <target>School Email</target>
+      </segment>
+    </unit>
+    <unit id="c21ofsQ" name="School Email Adres">
+      <segment>
+        <source>School Email Adres</source>
+        <target>School Email Adres</target>
+      </segment>
+    </unit>
+    <unit id="YDPU7VI" name="Email Adres">
+      <segment>
+        <source>Email Adres</source>
+        <target>Email Adres</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

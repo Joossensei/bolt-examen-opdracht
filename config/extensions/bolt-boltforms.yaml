@@ -97,10 +97,10 @@ signup:
                     placeholder: Jouw naam...
                 constraints: [ NotBlank, { Length: { 'min': 3, 'max': 128 } } ]
         email:
-            type: email
+            type: text
             options:
                 required: true
-                label: Email address
+                label: Email Adres
                 attr:
                     placeholder: Jouw email...
                 constraints: [ NotBlank, Email ]
