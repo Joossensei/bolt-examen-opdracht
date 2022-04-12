@@ -7,5 +7,11 @@
         <target>Your password should be at least 6 characters</target>
       </segment>
     </unit>
+    <unit id="Osw6_tX">
+      <segment>
+        <source>The CAPTCHA challenge failed with "{{ error }}". Please try again or contact the site owner.</source>
+        <target>The CAPTCHA challenge failed with "invalid-input-secret". Please try again or contact the site owner.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

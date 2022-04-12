@@ -143,7 +143,7 @@ signup:
 #        captcha:
 #            type: captcha
 #            options:
-#                captcha_type: recaptcha_v3
+#                captcha_type: recaptcha_v2
         submit:
             type: submit
             options:
